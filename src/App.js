@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Route , Routes} from 'react-router-dom';
+import BrandLogin from './views/Brands/login';
+import InfluencerLogin from './views/Influencer/login';
+import BrandDashboard from './views/Brands/dashboard';
+import InfluencerDashboard from './views/Influencer/dashboard';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+          <Router>
+              <Routes>
+              <Route element={<BrandLogin />} path="/brand/login" />
+              <Route element={<InfluencerLogin />} path="/influencer/login" />
+              <Route element={<InfluencerDashboard/>} path="/influencer/dashboard" />
+              <Route element={<BrandDashboard />} path="/brand/dashboard" />
+              </Routes>
+            </Router>
+    );
 }
 
 export default App;
+              
